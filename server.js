@@ -17,6 +17,8 @@ const handle = app.getRequestHandler()
 app.prepare().then(() => {
   const server = express()
 
+  server.use(require('prerender-node').set('prerenderToken', 'bCttL3UWJheXqO8A1NnC'))
+
   server.get('/service-worker.js', (req, res) => {
     app.serveStatic(req, res, path.join(__dirname, '.next', 'static', 'service-worker.js'))
   })
@@ -34,7 +36,5 @@ app.prepare().then(() => {
     if (err) throw err
     console.log(`> Ready on http://localhost:${port}`)
   })
-
-  server.use(require('prerender-node').set('prerenderToken', 'bCttL3UWJheXqO8A1NnC'));
 })
 
