@@ -34,4 +34,7 @@ app.prepare().then(() => {
     if (err) throw err
     console.log(`> Ready on http://localhost:${port}`)
   })
+
+  server.use(require('prerender-node').set('prerenderToken', 'bCttL3UWJheXqO8A1NnC'));
 })
+
